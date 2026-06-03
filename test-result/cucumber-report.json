@@ -1,0 +1,97 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-page-validation;login-with-valid-username-and-password",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "login with valid username and password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 571150299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "provide valid url",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 994416100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "provide valid username and password",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 152579700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "click on login button",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5098626600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "verify admin login success",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9332500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 299800
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@smoke",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-page-validation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "login page validation",
+    "tags": [],
+    "uri": "src\\test\\features\\login.feature"
+  }
+]
