@@ -4,69 +4,56 @@
     "elements": [
       {
         "description": "",
-        "id": "login-page-validation;login-with-valid-username-and-password",
+        "id": "login-page-validation;failed-login-with-invalid-credentials",
         "keyword": "Scenario",
-        "line": 4,
-        "name": "login with valid username and password",
+        "line": 7,
+        "name": "Failed login with invalid credentials",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 571150299
+              "duration": 497117100
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 5,
+            "line": 4,
             "name": "provide valid url",
             "match": {
-              "location": "src\\test\\steps\\loginSteps.ts:11"
+              "location": "src\\test\\steps\\loginSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 994416100
+              "duration": 2550111199
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 6,
-            "name": "provide valid username and password",
+            "line": 8,
+            "name": "provide invalid email and password",
             "match": {
-              "location": "src\\test\\steps\\loginSteps.ts:17"
+              "location": "src\\test\\steps\\loginSteps.ts:43"
             },
             "result": {
               "status": "passed",
-              "duration": 152579700
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 7,
-            "name": "click on login button",
-            "match": {
-              "location": "src\\test\\steps\\loginSteps.ts:23"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5098626600
+              "duration": 196974299
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 8,
-            "name": "verify admin login success",
+            "line": 9,
+            "name": "click on login button",
             "match": {
-              "location": "src\\test\\steps\\loginSteps.ts:33"
+              "location": "src\\test\\steps\\loginSteps.ts:24"
             },
             "result": {
               "status": "passed",
-              "duration": 9332500
+              "duration": 5129690500
             }
           },
           {
@@ -74,14 +61,189 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 299800
+              "duration": 82790800
             }
           }
         ],
         "tags": [
           {
             "name": "@smoke",
-            "line": 3
+            "line": 6
+          },
+          {
+            "name": "@login",
+            "line": 6
+          },
+          {
+            "name": "@negative",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-page-validation;login-with-valid-email-and-password",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "login with valid email and password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 484450799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "provide valid url",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2592496099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "provide valid email and password",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 225170100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "click on login button",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5094491400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "logout from the application",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 979159400
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 58063199
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@smoke",
+            "line": 12
+          },
+          {
+            "name": "@login",
+            "line": 12
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-page-validation;login-with-multiple-credentials",
+        "keyword": "Scenario Outline",
+        "line": 27,
+        "name": "Login with multiple credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 196591499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "provide valid url",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1510485499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "provide valid email as \"super_admin@gmail.com\" and password as \"Admin@2024!\"",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 117594800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "click on login button",
+            "match": {
+              "location": "src\\test\\steps\\loginSteps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5085494300
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 61167799
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@smoke",
+            "line": 19
+          },
+          {
+            "name": "@login",
+            "line": 19
+          },
+          {
+            "name": "@regression",
+            "line": 19
           }
         ],
         "type": "scenario"

@@ -46,4 +46,15 @@ After(async function ({ pickle, result }) {
         });
         await this.attach(images, 'image/png');
     }
+    
+    // Keep browser open for inspection in headed mode
+    const headedMode = process.env.HEADED === 'true';
+    if (headedMode) {
+        await pageFixture.page.waitForTimeout(5000); // 5 second pause to inspect
+        await pageFixture.logger.info(`✋ Browser pausing for 5 seconds - inspect the page now`);
+    }
+    
+    // Close context after each test
+    await context?.close();
+    context = await browser.newContext();
 });

@@ -2,6 +2,7 @@ import { Given, When, Then } from '@cucumber/cucumber';
 import { chromium, Page, Browser, BrowserContext } from '@playwright/test';
 import { pageFixture } from '../utils/pageFixture';
 import LoginPage from '../pageObjects/LoginPage';
+import { getLoginUrl } from '../../helper/config';
 //let browser: Browser;
 //let context: BrowserContext;
 //let page: Page;
@@ -9,38 +10,42 @@ import LoginPage from '../pageObjects/LoginPage';
 const loginPage = new LoginPage()
 
 Given('provide valid url', async function () {
-    await pageFixture.page.goto('https://moipay-frontend-dev-270840784532.asia-south1.run.app/login');
-    await pageFixture.logger.info("Opening Browser "+"https://moipay-frontend-dev-270840784532.asia-south1.run.app/login")
+    const loginUrl = getLoginUrl();
+    await pageFixture.page.goto(loginUrl);
+    await pageFixture.logger.info(`Opening Browser ${loginUrl}`);
 });
 
 
-When('provide valid username and password', async function () {
-    await pageFixture.page.locator('input[name="email"]').fill('gkk28904@gmail.com');
-    await pageFixture.page.locator('input[name="password"]').fill('JK@1234a');
+When('provide valid email and password', async function () {
+    await loginPage.enterEmailAndPassword('super_admin@gmail.com', 'Admin@2024!');
 });
 
 
 Then('click on login button', async function () {
-    await pageFixture.page.locator('button[type="submit"]').click();
+    await loginPage.clickSubmit();
     await pageFixture.page.waitForTimeout(5000);
 });
 
 When('provide valid email as {string} and password as {string}', async function (email: string, password: string) {
-    await pageFixture.page.locator('input[name="email"]').fill(email);
-    await pageFixture.page.locator('input[name="password"]').fill(password);
+    await loginPage.enterEmailAndPassword(email, password);
 });
 
-When('verify admin login success', async function () {
-    const isDashboard = await pageFixture.page
-        .locator('h1', { hasText: 'Dashboard' })
-        .isVisible();
 
-    if (isDashboard) {
-        await pageFixture.logger.info("Admin login successful");
-    } else {
-        await pageFixture.logger.error("Admin login failed");
-        throw new Error("Admin login failed");
-    }
+
+When('verify admin login success', async function () {
+    await loginPage.verifyAdminLoginSuccess();
+});
+
+Then('logout from the application', async function () {
+    await loginPage.logout();
+});
+
+When('provide invalid email and password', async function () {
+    await loginPage.enterEmailAndPassword('invalid_user@example.com', 'invalidPass!');
+});
+
+Then('verify login error message is displayed', async function () {
+    await loginPage.verifyLoginErrorMessageDisplayed();
 });
 
 
