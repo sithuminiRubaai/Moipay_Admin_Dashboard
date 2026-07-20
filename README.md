@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MoiPay Admin Dashboard Automation
 
 ## Overview
@@ -140,3 +141,6 @@ MoiPay Quality Assurance Team
 ## License
 
 This project is intended for internal use within the MoiPay platform and its authorized development and QA teams.
+=======
+# Moipay_Admin_Dashboard
+>>>>>>> 17a2e7bf1a8244f37072a355f1e72ca12b1c949a
